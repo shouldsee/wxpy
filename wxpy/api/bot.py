@@ -85,7 +85,9 @@ class Bot(object):
                 enableCmdQR=console_qr, picDir=qr_path, qrCallback=qr_callback,
                 loginCallback=login_callback, exitCallback=logout_callback
             )
-        except FileNotFoundError as e:
+#         except FileNotFoundError as e:
+
+        except IOError as e:
             if 'xdg-open' in e.strerror:
                 raise Exception('use `console_qr` arg while under pure console environment')
             raise
